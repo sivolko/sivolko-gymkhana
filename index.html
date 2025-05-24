@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sivolko Gymkhana - 4-Month Transformation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #1a1a1a;
+            --accent-color: #00d4aa;
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #262626;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-accent: #ff6b35;
+            --border-color: #333333;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, #ff6b35, #f7931e);
+            --gradient-secondary: linear-gradient(135deg, #00d4aa, #1dd1a1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: var(--bg-secondary);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+            padding: 120px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Program Overview */
+        .program-overview {
+            padding: 80px 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .overview-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .overview-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .overview-card ul {
+            list-style: none;
+        }
+
+        .overview-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .overview-card li::before {
+            content: '💪';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Weekly Schedule */
+        .weekly-schedule {
+            padding: 80px 2rem;
+            background: var(--bg-primary);
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .day-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .day-header {
+            padding: 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .day-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-focus {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .day-content {
+            padding: 1.5rem;
+        }
+
+        .day-duration {
+            background: var(--bg-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .exercise-list {
+            list-style: none;
+        }
+
+        .exercise-list li {
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Workout Details */
+        .workout-details {
+            padding: 80px 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .workout-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .workout-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .workout-btn:hover, .workout-btn.active {
+            background: var(--gradient-primary);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .workout-content {
+            display: none;
+        }
+
+        .workout-content.active {
+            display: block;
+        }
+
+        .exercise-table {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .table-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .table-content {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        td {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        tr:hover {
+            background: rgba(255, 107, 53, 0.05);
+        }
+
+        /* Nutrition Section */
+        .nutrition {
+            padding: 80px 2rem;
+            background: var(--bg-primary);
+        }
+
+        .nutrition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .nutrition-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .nutrition-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .macro-bar {
+            background: var(--bg-secondary);
+            height: 8px;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .macro-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .protein { background: var(--gradient-primary); }
+        .carbs { background: var(--gradient-secondary); }
+        .fats { background: linear-gradient(135deg, #ffd700, #ffed4e); }
+
+        /* Progress Tracking */
+        .progress {
+            padding: 80px 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .progress-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .progress-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .progress-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 1rem 60px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .overview-grid,
+            .schedule-grid,
+            .nutrition-grid,
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workout-nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+
+            .workout-btn {
+                white-space: nowrap;
+            }
+
+            th, td {
+                padding: 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-overview,
+            .weekly-schedule,
+            .workout-details,
+            .nutrition,
+            .progress {
+                padding: 60px 1rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff8a5c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <i class="fas fa-dumbbell"></i> Sivolko Gymkhana
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#workouts">Workouts</a></li>
+                <li><a href="#nutrition">Nutrition</a></li>
+                <li><a href="#progress">Progress</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>4-Month Upper Body Transformation</h1>
+            <p class="hero-subtitle">Athletic Training + Heavy Lifting for Lean Muscle & 6-Pack Abs</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card slide-in">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Months Program</span>
+                </div>
+                <div class="stat-card slide-in">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Days Per Week</span>
+                </div>
+                <div class="stat-card slide-in">
+                    <span class="stat-number">485</span>
+                    <span class="stat-label">Minutes/Week</span>
+                </div>
+                <div class="stat-card slide-in">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Results Guaranteed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Overview -->
+    <section id="overview" class="program-overview">
+        <div class="container">
+            <h2 class="section-title">Program Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card fade-in">
+                    <h3><i class="fas fa-target"></i> Primary Goals</h3>
+                    <ul>
+                        <li>Build lean muscle volume</li>
+                        <li>Develop 6-pack abs</li>
+                        <li>Strengthen weak areas (back, shoulders, arms, traps)</li>
+                        <li>Maintain athletic performance</li>
+                        <li>Achieve V-taper physique</li>
+                    </ul>
+                </div>
+                <div class="overview-card fade-in">
+                    <h3><i class="fas fa-lightning-bolt"></i> Training Style</h3>
+                    <ul>
+                        <li>Athletic + Heavy Weight Hybrid</li>
+                        <li>Olympic lifts & Explosive movements</li>
+                        <li>Progressive overload focus</li>
+                        <li>High-frequency upper body training</li>
+                        <li>Functional strength emphasis</li>
+                    </ul>
+                </div>
+                <div class="overview-card fade-in">
+                    <h3><i class="fas fa-chart-line"></i> Expected Results</h3>
+                    <ul>
+                        <li>7-10kg fat loss (85kg → 75-78kg)</li>
+                        <li>2-4kg lean muscle gain</li>
+                        <li>4-6cm shoulder width increase</li>
+                        <li>2-4cm arm size increase</li>
+                        <li>Visible 6-pack abs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Schedule -->
+    <section id="schedule" class="weekly-schedule">
+        <div class="container">
+            <h2 class="section-title">Weekly Training Schedule</h2>
+            <div class="schedule-grid">
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <div class="day-name">MONDAY</div>
+                        <div class="day-focus">Back & Traps Power</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-duration">75 minutes</div>
+                        <ul class="exercise-list">
+                            <li>Deadlifts (Heavy)</li>
+                            <li>Power Cleans</li>
+                            <li>Weighted Pull-ups</li>
+                            <li>Barbell Rows</li>
+                            <li>Face Pulls</li>
+                            <li>Barbell Shrugs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <div class="day-name">TUESDAY</div>
+                        <div class="day-focus">Shoulders & Arms Athletic</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-duration">80 minutes</div>
+                        <ul class="exercise-list">
+                            <li>Push Press</li>
+                            <li>Dumbbell Shoulder Press</li>
+                            <li>Lateral Raises</li>
+                            <li>Athletic Conditioning</li>
+                            <li>Arm Supersets</li>
+                            <li>HIIT Finishers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <div class="day-name">WEDNESDAY</div>
+                        <div class="day-focus">Lower Body + Back Width</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-duration">70 minutes</div>
+                        <ul class="exercise-list">
+                            <li>Front Squats</li>
+                            <li>Romanian Deadlifts</li>
+                            <li>Wide-Grip Pull-ups</li>
+                            <li>T-Bar Rows</li>
+                            <li>Walking Lunges</li>
+                            <li>Lat Work</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <div class="day-name">THURSDAY</div>
+                        <div class="day-focus">Upper Body Power + Traps</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-duration">85 minutes</div>
+                        <ul class="exercise-list">
+                            <li>Clean & Press</li>
+                            <li>Incline Barbell Press</li>
+                            <li>Heavy Rows</li>
+                            <li>Dumbbell Shrugs</li>
+                            <li>Explosive Circuits</li>
+                            <li>Trap Specialization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <div class="day-name">FRIDAY</div>
+                        <div class="day-focus">Back & Arms Hypertrophy</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-duration">85 minutes</div>
+                        <ul class="exercise-list">
+                            <li>High Volume Back Work</li>
+                            <li>Arm Supersets (3 rounds)</li>
+                            <li>Isolation Movements</li>
+                            <li>Pump Training</li>
+                            <li>HIIT Cardio</li>
+                            <li>Core Shred</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in">
+                    <div class="day-header">
+                        <div class="day-name">SATURDAY</div>
+                        <div class="day-focus">Athletic + Weak Points</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-duration">90 minutes</div>
+                        <ul class="exercise-list">
+                            <li>Athletic Complexes</li>
+                            <li>Full Body Circuits</li>
+                            <li>Weak Point Specialization</li>
+                            <li>Conditioning Work</li>
+                            <li>Core Destroyer</li>
+                            <li>Mobility</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="day-card fade-in">
+                    <div class="day-header" style="background: var(--gradient-secondary);">
+                        <div class="day-name">SUNDAY</div>
+                        <div class="day-focus">Complete Rest Day</div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-duration">Recovery</div>
+                        <ul class="exercise-list">
+                            <li>Complete rest</li>
+                            <li>Light mobility work</li>
+                            <li>Meal prep</li>
+                            <li>Recovery activities</li>
+                            <li>Progress photos</li>
+                            <li>Plan next week</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workout Details -->
+    <section id="workouts" class="workout-details">
+        <div class="container">
+            <h2 class="section-title">Detailed Workout Plans</h2>
+            <div class="workout-nav">
+                <button class="workout-btn active" onclick="showWorkout('monday')">Monday</button>
+                <button class="workout-btn" onclick="showWorkout('tuesday')">Tuesday</button>
+                <button class="workout-btn" onclick="showWorkout('wednesday')">Wednesday</button>
+                <button class="workout-btn" onclick="showWorkout('thursday')">Thursday</button>
+                <button class="workout-btn" onclick="showWorkout('friday')">Friday</button>
+                <button class="workout-btn" onclick="showWorkout('saturday')">Saturday</button>
+            </div>
+
+            <!-- Monday Workout -->
+            <div id="monday" class="workout-content active">
+                <div class="exercise-table">
+                    <div class="table-header">
+                        MONDAY - Back & Traps Power Day (75 min)
+                    </div>
+                    <div class="table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Exercise</th>
+                                    <th>Sets x Reps</th>
+                                    <th>Rest</th>
+                                    <th>Time</th>
+                                    <th>Form Cues</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                    <td colspan="5"><strong>WARM-UP (10 min)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Band Pull-aparts</td>
+                                    <td>1 x 20</td>
+                                    <td>-</td>
+                                    <td>2 min</td>
+                                    <td>Squeeze shoulder blades</td>
+                                </tr>
+                                <tr>
+                                    <td>Arm Circles & Mobility</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>3 min</td>
+                                    <td>Full range of motion</td>
+                                </tr>
+                                <tr>
+                                    <td>Light Rowing</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>5 min</td>
+                                    <td>Warm up entire back</td>
+                                </tr>
+                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                    <td colspan="5"><strong>MAIN WORKOUT (55 min)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Deadlift</strong></td>
+                                    <td>5 x 5</td>
+                                    <td>3 min</td>
+                                    <td>15 min</td>
+                                    <td>Hip hinge, chest up, drive heels</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Power Cleans</strong></td>
+                                    <td>4 x 3</td>
+                                    <td>2.5 min</td>
+                                    <td>12 min</td>
+                                    <td>Explosive hip extension, catch high</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Weighted Pull-ups</strong></td>
+                                    <td>4 x 6-8</td>
+                                    <td>2 min</td>
+                                    <td>10 min</td>
+                                    <td>Full hang to chin over bar</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Barbell Rows</strong></td>
+                                    <td>4 x 8</td>
+                                    <td>1.5 min</td>
+                                    <td>8 min</td>
+                                    <td>45° bend, pull to lower chest</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Face Pulls</strong></td>
+                                    <td>4 x 15</td>
+                                    <td>1 min</td>
+                                    <td>6 min</td>
+                                    <td>High elbows, squeeze rear delts</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Barbell Shrugs</strong></td>
+                                    <td>4 x 12</td>
+                                    <td>45 sec</td>
+                                    <td>4 min</td>
+                                    <td>Straight up, hold peak contraction</td>
+                                </tr>
+                                <tr style="background: rgba(0, 212, 170, 0.1);">
+                                    <td colspan="5"><strong>FINISHERS & CORE (10 min)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Band Pull-aparts</td>
+                                    <td>3 x 20</td>
+                                    <td>30 sec</td>
+                                    <td>3 min</td>
+                                    <td>Constant tension</td>
+                                </tr>
+                                <tr>
+                                    <td>Reverse Flyes</td>
+                                    <td>3 x 15</td>
+                                    <td>30 sec</td>
+                                    <td>3 min</td>
+                                    <td>Light weight, perfect form</td>
+                                </tr>
+                                <tr>
+                                    <td>Hanging Leg Raises</td>
+                                    <td>3 x 12</td>
+                                    <td>20 sec</td>
+                                    <td>2 min</td>
+                                    <td>Control up and down</td>
+                                </tr>
+                                <tr>
+                                    <td>Russian Twists</td>
+                                    <td>3 x 20</td>
+                                    <td>20 sec</td>
+                                    <td>2 min</td>
+                                    <td>Touch ground each side</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday Workout -->
+            <div id="tuesday" class="workout-content">
+                <div class="exercise-table">
+                    <div class="table-header">
+                        TUESDAY - Shoulders & Arms Athletic Day (80 min)
+                    </div>
+                    <div class="table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Exercise</th>
+                                    <th>Sets x Reps</th>
+                                    <th>Rest</th>
+                                    <th>Time</th>
+                                    <th>Form Cues</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                    <td colspan="5"><strong>ACTIVATION (8 min)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Band External Rotations</td>
+                                    <td>2 x 15</td>
+                                    <td>-</td>
+                                    <td>3 min</td>
+                                    <td>Keep elbow at side</td>
+                                </tr>
+                                <tr>
+                                    <td>Shoulder Dislocations</td>
+                                    <td>2 x 10</td>
+                                    <td>-</td>
+                                    <td>2 min</td>
+                                    <td>Slow, controlled movement</td>
+                                </tr>
+                                <tr>
+                                    <td>Wall Slides</td>
+                                    <td>2 x 10</td>
+                                    <td>-</td>
+                                    <td>3 min</td>
+                                    <td>Back against wall</td>
+                                </tr>
+                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                    <td colspan="5"><strong>MAIN WORKOUT (45 min)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Push Press</strong></td>
+                                    <td>5 x 5</td>
+                                    <td>2 min</td>
+                                    <td>12 min</td>
+                                    <td>Use legs, explosive overhead</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DB Shoulder Press</strong></td>
+                                    <td>4 x 10</td>
+                                    <td>1.5 min</td>
+                                    <td>8 min</td>
+                                    <td>Full range, control descent</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Lateral Raises</strong></td>
+                                    <td>4 x 12</td>
+                                    <td>1 min</td>
+                                    <td>6 min</td>
+                                    <td>Slight bend in arms, control</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Arnold Press</strong></td>
+                                    <td>3 x 12</td>
+                                    <td>1.5 min</td>
+                                    <td>6 min</td>
+                                    <td>Rotate while pressing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Upright Rows</strong></td>
+                                    <td>4 x 10</td>
+                                    <td>1 min</td>
+                                    <td>5 min</td>
+                                    <td>Elbows lead, pull to chest</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Close-Grip Bench</strong></td>
+                                    <td>4 x 8</td>
+                                    <td>1.5 min</td>
+                                    <td>8 min</td>
+                                    <td>Hands 6" apart, tricep focus</td>
+                                </tr>
+                                <tr style="background: rgba(0, 212, 170, 0.1);">
+                                    <td colspan="5"><strong>CONDITIONING & FINISHERS (27 min)</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Athletic Circuit (3 rounds)</td>
+                                    <td>Various</td>
+                                    <td>90 sec</td>
+                                    <td>15 min</td>
+                                    <td>MB Throws, Ropes, Jumps, Planks</td>
+                                </tr>
+                                <tr>
+                                    <td>21s Bicep Curls</td>
+                                    <td>2 sets</td>
+                                    <td>90 sec</td>
+                                    <td>4 min</td>
+                                    <td>7 bottom + 7 top + 7 full</td>
+                                </tr>
+                                <tr>
+                                    <td>Tricep Dips</td>
+                                    <td>3 x 15</td>
+                                    <td>60 sec</td>
+                                    <td>4 min</td>
+                                    <td>Full depth, strong lockout</td>
+                                </tr>
+                                <tr>
+                                    <td>Farmer's Walk</td>
+                                    <td>3 x 40yd</td>
+                                    <td>60 sec</td>
+                                    <td>2 min</td>
+                                    <td>Heavy weight, tall posture</td>
+                                </tr>
+                                <tr>
+                                    <td>Core (V-Ups, Side Planks)</td>
+                                    <td>3 sets each</td>
+                                    <td>20 sec</td>
+                                    <td>2 min</td>
+                                    <td>Control and hold</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add similar tables for other days... -->
+            <div id="wednesday" class="workout-content">
+                <div class="exercise-table">
+                    <div class="table-header">
+                        WEDNESDAY - Lower Body + Back Width (70 min)
+                    </div>
+                    <div class="table-content">
+                        <p style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                            <i class="fas fa-construction"></i><br>
+                            Detailed workout table coming soon!<br>
+                            <small>Focus: Front Squats, RDL, Wide-Grip Pull-ups, T-Bar Rows</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="thursday" class="workout-content">
+                <div class="exercise-table">
+                    <div class="table-header">
+                        THURSDAY - Upper Body Power + Traps (85 min)
+                    </div>
+                    <div class="table-content">
+                        <p style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                            <i class="fas fa-construction"></i><br>
+                            Detailed workout table coming soon!<br>
+                            <small>Focus: Clean & Press, Heavy Rows, Explosive Movements</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="friday" class="workout-content">
+                <div class="exercise-table">
+                    <div class="table-header">
+                        FRIDAY - Back & Arms Hypertrophy (85 min)
+                    </div>
+                    <div class="table-content">
+                        <p style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                            <i class="fas fa-construction"></i><br>
+                            Detailed workout table coming soon!<br>
+                            <small>Focus: High Volume, Supersets, Pump Training</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="saturday" class="workout-content">
+                <div class="exercise-table">
+                    <div class="table-header">
+                        SATURDAY - Athletic + Weak Points (90 min)
+                    </div>
+                    <div class="table-content">
+                        <p style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                            <i class="fas fa-construction"></i><br>
+                            Detailed workout table coming soon!<br>
+                            <small>Focus: Full Body Circuits, Conditioning, Specialization</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition Section -->
+    <section id="nutrition" class="nutrition">
+        <div class="container">
+            <h2 class="section-title">Nutrition Guidelines</h2>
+            <div class="nutrition-grid">
+                <div class="nutrition-card fade-in">
+                    <h3><i class="fas fa-apple-alt"></i> Daily Targets</h3>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Protein (40%)</span>
+                            <span>190-210g</span>
+                        </div>
+                        <div class="macro-bar">
+                            <div class="macro-fill protein" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Carbs (35%)</span>
+                            <span>200-250g</span>
+                        </div>
+                        <div class="macro-bar">
+                            <div class="macro-fill carbs" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Fats (25%)</span>
+                            <span>70-85g</span>
+                        </div>
+                        <div class="macro-bar">
+                            <div class="macro-fill fats" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem; color: var(--primary-color); font-weight: bold;">
+                        Total: 2500-2700 calories
+                    </div>
+                </div>
+
+                <div class="nutrition-card fade-in">
+                    <h3><i class="fas fa-clock"></i> Meal Timing</h3>
+                    <div style="color: var(--text-secondary); line-height: 1.8;">
+                        <div><strong>Pre-Workout:</strong> Banana + Coffee</div>
+                        <div><strong>Post-Workout:</strong> Whey + Simple Carbs</div>
+                        <div><strong>Breakfast:</strong> 4 Eggs + Oatmeal</div>
+                        <div><strong>Lunch:</strong> Chicken + Sweet Potato</div>
+                        <div><strong>Snack:</strong> Greek Yogurt + Nuts</div>
+                        <div><strong>Dinner:</strong> Fish + Vegetables</div>
+                        <div><strong>Evening:</strong> Casein Protein</div>
+                    </div>
+                </div>
+
+                <div class="nutrition-card fade-in">
+                    <h3><i class="fas fa-tint"></i> Hydration & Supplements</h3>
+                    <div style="color: var(--text-secondary); line-height: 1.8;">
+                        <div><strong>Water:</strong> 4-5 liters daily</div>
+                        <div><strong>Whey Protein:</strong> Post-workout</div>
+                        <div><strong>Casein:</strong> Before bed</div>
+                        <div><strong>Creatine:</strong> 5g daily</div>
+                        <div><strong>Fish Oil:</strong> 2-3g daily</div>
+                        <div><strong>Multivitamin:</strong> Daily</div>
+                        <div><strong>Caffeine:</strong> Pre-workout</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracking -->
+    <section id="progress" class="progress">
+        <div class="container">
+            <h2 class="section-title">Track Your Progress</h2>
+            <div class="progress-grid">
+                <div class="progress-card fade-in">
+                    <div class="progress-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <div class="progress-value">7-10kg</div>
+                    <div class="progress-label">Expected Fat Loss</div>
+                </div>
+
+                <div class="progress-card fade-in">
+                    <div class="progress-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="progress-value">2-4kg</div>
+                    <div class="progress-label">Lean Muscle Gain</div>
+                </div>
+
+                <div class="progress-card fade-in">
+                    <div class="progress-icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <div class="progress-value">4-6cm</div>
+                    <div class="progress-label">Shoulder Width Increase</div>
+                </div>
+
+                <div class="progress-card fade-in">
+                    <div class="progress-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="progress-value">2-4cm</div>
+                    <div class="progress-label">Arm Size Increase</div>
+                </div>
+
+                <div class="progress-card fade-in">
+                    <div class="progress-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="progress-value">100%</div>
+                    <div class="progress-label">Strength Improvement</div>
+                </div>
+
+                <div class="progress-card fade-in">
+                    <div class="progress-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="progress-value">6-Pack</div>
+                    <div class="progress-label">Visible Abs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/sivolko/sivolko-gymkhana" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                4-Month Upper Body Transformation Program
+            </p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                Built with 💪 by Sivolko | © 2025 Sivolko Gymkhana
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Workout navigation
+        function showWorkout(day) {
+            // Hide all workout contents
+            const contents = document.querySelectorAll('.workout-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.workout-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected workout and activate button
+            document.getElementById(day).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .slide-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Mobile menu toggle (basic functionality)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Progress bar animations
+        function animateProgressBars() {
+            const bars = document.querySelectorAll('.macro-fill');
+            bars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+
+        // Trigger progress bar animation when nutrition section is visible
+        const nutritionSection = document.querySelector('#nutrition');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        progressObserver.observe(nutritionSection);
+
+        // Add some interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Highlight current section in navigation
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-links a');
+                
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
