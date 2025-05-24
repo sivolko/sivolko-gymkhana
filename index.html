@@ -13,19 +13,23 @@
         }
 
         :root {
-            --primary-color: #ff6b35;
+            --primary-color: #a855f7;
             --secondary-color: #1a1a1a;
-            --accent-color: #00d4aa;
+            --accent-color: #06b6d4;
+            --neon-green: #10b981;
             --bg-primary: #0f0f0f;
             --bg-secondary: #1a1a1a;
             --bg-card: #262626;
             --text-primary: #ffffff;
             --text-secondary: #b3b3b3;
-            --text-accent: #ff6b35;
+            --text-accent: #a855f7;
             --border-color: #333333;
             --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --gradient-primary: linear-gradient(135deg, #ff6b35, #f7931e);
-            --gradient-secondary: linear-gradient(135deg, #00d4aa, #1dd1a1);
+            --gradient-primary: linear-gradient(135deg, #a855f7, #8b5cf6);
+            --gradient-secondary: linear-gradient(135deg, #06b6d4, #0ea5e9);
+            --gradient-neon: linear-gradient(135deg, #10b981, #34d399);
+            --neon-glow: 0 0 20px rgba(168, 85, 247, 0.5);
+            --cyan-glow: 0 0 20px rgba(6, 182, 212, 0.5);
         }
 
         body {
@@ -46,6 +50,7 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 20px rgba(168, 85, 247, 0.1);
         }
 
         .nav {
@@ -55,6 +60,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
+            position: relative;
         }
 
         .logo {
@@ -64,23 +70,42 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: var(--neon-glow);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+            transition: all 0.3s ease;
         }
 
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: 500;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: var(--primary-color);
+            text-shadow: var(--neon-glow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .mobile-menu-btn {
@@ -90,6 +115,79 @@
             color: var(--text-primary);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--primary-color);
+            background: rgba(168, 85, 247, 0.1);
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                border-top: 1px solid var(--border-color);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                height: 100vh;
+                top: 100%;
+            }
+
+            .nav-links li {
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
+            .nav-links.active li:nth-child(5) { transition-delay: 0.5s; }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                background: rgba(168, 85, 247, 0.1);
+                border: 1px solid rgba(168, 85, 247, 0.3);
+                width: 200px;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: rgba(168, 85, 247, 0.2);
+                box-shadow: var(--neon-glow);
+                transform: translateY(-2px);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1001;
+            }
         }
 
         /* Hero Section */
@@ -108,7 +206,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23a855f7" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
             opacity: 0.1;
         }
 
@@ -127,6 +225,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             font-weight: 800;
+            text-shadow: var(--neon-glow);
         }
 
         .hero-subtitle {
@@ -148,12 +247,25 @@
             padding: 2rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-primary);
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow);
+            box-shadow: var(--neon-glow);
+            border-color: var(--primary-color);
         }
 
         .stat-number {
@@ -161,6 +273,7 @@
             font-weight: bold;
             color: var(--primary-color);
             display: block;
+            text-shadow: var(--neon-glow);
         }
 
         .stat-label {
@@ -189,6 +302,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: var(--cyan-glow);
         }
 
         .overview-grid {
@@ -204,6 +318,7 @@
             border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
 
         .overview-card::before {
@@ -216,10 +331,16 @@
             background: var(--gradient-primary);
         }
 
+        .overview-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow);
+        }
+
         .overview-card h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.3rem;
+            text-shadow: var(--neon-glow);
         }
 
         .overview-card ul {
@@ -257,12 +378,12 @@
             border-radius: 16px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .day-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow);
+            box-shadow: var(--neon-glow);
         }
 
         .day-header {
@@ -295,6 +416,7 @@
             display: inline-block;
             margin-bottom: 1rem;
             color: var(--primary-color);
+            border: 1px solid rgba(168, 85, 247, 0.3);
         }
 
         .exercise-list {
@@ -336,6 +458,8 @@
             background: var(--gradient-primary);
             border-color: var(--primary-color);
             color: white;
+            box-shadow: var(--neon-glow);
+            transform: translateY(-2px);
         }
 
         .workout-content {
@@ -352,6 +476,7 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .table-header {
@@ -390,7 +515,7 @@
         }
 
         tr:hover {
-            background: rgba(255, 107, 53, 0.05);
+            background: rgba(168, 85, 247, 0.05);
         }
 
         /* Nutrition Section */
@@ -411,6 +536,12 @@
             padding: 2rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .nutrition-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--cyan-glow);
         }
 
         .nutrition-card h3 {
@@ -419,6 +550,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-shadow: var(--cyan-glow);
         }
 
         .macro-bar {
@@ -437,7 +569,7 @@
 
         .protein { background: var(--gradient-primary); }
         .carbs { background: var(--gradient-secondary); }
-        .fats { background: linear-gradient(135deg, #ffd700, #ffed4e); }
+        .fats { background: var(--gradient-neon); }
 
         /* Progress Tracking */
         .progress {
@@ -458,12 +590,19 @@
             border-radius: 16px;
             border: 1px solid var(--border-color);
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .progress-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow);
         }
 
         .progress-icon {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
+            text-shadow: var(--neon-glow);
         }
 
         .progress-value {
@@ -471,6 +610,7 @@
             font-weight: bold;
             color: var(--accent-color);
             margin-bottom: 0.5rem;
+            text-shadow: var(--cyan-glow);
         }
 
         .progress-label {
@@ -515,19 +655,11 @@
         .social-link:hover {
             background: var(--gradient-primary);
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            box-shadow: var(--neon-glow);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
             .hero {
                 padding: 100px 1rem 60px;
             }
@@ -560,6 +692,7 @@
 
             .workout-btn {
                 white-space: nowrap;
+                min-width: 120px;
             }
 
             th, td {
@@ -587,6 +720,17 @@
             .nutrition,
             .progress {
                 padding: 60px 1rem;
+            }
+
+            .nav {
+                padding: 0 1rem;
+            }
+
+            .day-card,
+            .nutrition-card,
+            .progress-card,
+            .overview-card {
+                margin: 0;
             }
         }
 
@@ -636,7 +780,21 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #ff8a5c;
+            background: #9333ea;
+        }
+
+        /* Special Neon Effects */
+        .neon-pulse {
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from {
+                text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color), 0 0 15px var(--primary-color);
+            }
+            to {
+                text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+            }
         }
     </style>
 </head>
@@ -644,17 +802,17 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="logo">
+            <div class="logo neon-pulse">
                 <i class="fas fa-dumbbell"></i> Sivolko Gymkhana
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#overview">Overview</a></li>
                 <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#workouts">Workouts</a></li>
                 <li><a href="#nutrition">Nutrition</a></li>
                 <li><a href="#progress">Progress</a></li>
             </ul>
-            <button class="mobile-menu-btn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
         </nav>
@@ -663,7 +821,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in">
-            <h1>4-Month Upper Body Transformation</h1>
+            <h1 class="neon-pulse">4-Month Upper Body Transformation</h1>
             <p class="hero-subtitle">Athletic Training + Heavy Lifting for Lean Muscle & 6-Pack Abs</p>
             
             <div class="stats-grid">
@@ -891,7 +1049,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                <tr style="background: rgba(168, 85, 247, 0.1);">
                                     <td colspan="5"><strong>WARM-UP (10 min)</strong></td>
                                 </tr>
                                 <tr>
@@ -915,7 +1073,7 @@
                                     <td>5 min</td>
                                     <td>Warm up entire back</td>
                                 </tr>
-                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                <tr style="background: rgba(168, 85, 247, 0.1);">
                                     <td colspan="5"><strong>MAIN WORKOUT (55 min)</strong></td>
                                 </tr>
                                 <tr>
@@ -960,7 +1118,7 @@
                                     <td>4 min</td>
                                     <td>Straight up, hold peak contraction</td>
                                 </tr>
-                                <tr style="background: rgba(0, 212, 170, 0.1);">
+                                <tr style="background: rgba(6, 182, 212, 0.1);">
                                     <td colspan="5"><strong>FINISHERS & CORE (10 min)</strong></td>
                                 </tr>
                                 <tr>
@@ -1015,7 +1173,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                <tr style="background: rgba(168, 85, 247, 0.1);">
                                     <td colspan="5"><strong>ACTIVATION (8 min)</strong></td>
                                 </tr>
                                 <tr>
@@ -1039,7 +1197,7 @@
                                     <td>3 min</td>
                                     <td>Back against wall</td>
                                 </tr>
-                                <tr style="background: rgba(255, 107, 53, 0.1);">
+                                <tr style="background: rgba(168, 85, 247, 0.1);">
                                     <td colspan="5"><strong>MAIN WORKOUT (45 min)</strong></td>
                                 </tr>
                                 <tr>
@@ -1084,7 +1242,7 @@
                                     <td>8 min</td>
                                     <td>Hands 6" apart, tricep focus</td>
                                 </tr>
-                                <tr style="background: rgba(0, 212, 170, 0.1);">
+                                <tr style="background: rgba(6, 182, 212, 0.1);">
                                     <td colspan="5"><strong>CONDITIONING & FINISHERS (27 min)</strong></td>
                                 </tr>
                                 <tr>
@@ -1342,6 +1500,44 @@
     </footer>
 
     <script>
+        // Hamburger Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            
+            // Toggle hamburger icon
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        navLinks.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
         // Workout navigation
         function showWorkout(day) {
             // Hide all workout contents
@@ -1392,12 +1588,6 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
-        });
-
-        // Mobile menu toggle (basic functionality)
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
         // Progress bar animations
