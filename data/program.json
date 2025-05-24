@@ -1,0 +1,180 @@
+{
+  "program": {
+    "name": "Sivolko Gymkhana - 4-Month Upper Body Transformation",
+    "duration": "4 months",
+    "trainingDays": 6,
+    "restDay": "Sunday",
+    "style": "Athletic + Heavy Weight Hybrid",
+    "goals": [
+      "Build lean muscle volume (2-4kg gain)",
+      "Develop visible 6-pack abs",
+      "Strengthen weak areas (back, shoulders, arms, traps)",
+      "Maintain athletic performance",
+      "Achieve V-taper physique",
+      "Total body fat loss (7-10kg expected)"
+    ]
+  },
+  "weeklySchedule": {
+    "monday": {
+      "name": "Back & Traps Power",
+      "duration": 75,
+      "focus": "Building width, thickness & trap development",
+      "primaryExercises": [
+        "Deadlifts (Heavy)",
+        "Power Cleans",
+        "Weighted Pull-ups",
+        "Barbell Rows",
+        "Face Pulls",
+        "Barbell Shrugs"
+      ]
+    },
+    "tuesday": {
+      "name": "Shoulders & Arms Athletic",
+      "duration": 80,
+      "focus": "Shoulder development + arm pump + conditioning",
+      "primaryExercises": [
+        "Push Press",
+        "Dumbbell Shoulder Press",
+        "Lateral Raises",
+        "Athletic Conditioning",
+        "Arm Supersets",
+        "HIIT Finishers"
+      ]
+    },
+    "wednesday": {
+      "name": "Lower Body + Back Width",
+      "duration": 70,
+      "focus": "Legs + extra back volume",
+      "primaryExercises": [
+        "Front Squats",
+        "Romanian Deadlifts",
+        "Wide-Grip Pull-ups",
+        "T-Bar Rows",
+        "Walking Lunges",
+        "Lat Work"
+      ]
+    },
+    "thursday": {
+      "name": "Upper Body Power + Traps",
+      "duration": 85,
+      "focus": "Explosive upper body + massive trap development",
+      "primaryExercises": [
+        "Clean & Press",
+        "Incline Barbell Press",
+        "Heavy Rows",
+        "Dumbbell Shrugs",
+        "Explosive Circuits",
+        "Trap Specialization"
+      ]
+    },
+    "friday": {
+      "name": "Back & Arms Hypertrophy",
+      "duration": 85,
+      "focus": "Maximum muscle building for weak areas",
+      "primaryExercises": [
+        "High Volume Back Work",
+        "Arm Supersets (3 rounds)",
+        "Isolation Movements",
+        "Pump Training",
+        "HIIT Cardio",
+        "Core Shred"
+      ]
+    },
+    "saturday": {
+      "name": "Athletic + Weak Points",
+      "duration": 90,
+      "focus": "Athletic movements + extra upper body volume",
+      "primaryExercises": [
+        "Athletic Complexes",
+        "Full Body Circuits",
+        "Weak Point Specialization",
+        "Conditioning Work",
+        "Core Destroyer",
+        "Mobility"
+      ]
+    },
+    "sunday": {
+      "name": "Complete Rest Day",
+      "duration": 0,
+      "focus": "Recovery",
+      "primaryExercises": [
+        "Complete rest",
+        "Light mobility work",
+        "Meal prep",
+        "Recovery activities",
+        "Progress photos",
+        "Plan next week"
+      ]
+    }
+  },
+  "nutrition": {
+    "dailyTargets": {
+      "calories": "2500-2700",
+      "protein": {
+        "grams": "190-210",
+        "percentage": 40
+      },
+      "carbohydrates": {
+        "grams": "200-250",
+        "percentage": 35
+      },
+      "fats": {
+        "grams": "70-85",
+        "percentage": 25
+      }
+    },
+    "mealTiming": {
+      "breakfast": "4 eggs + oatmeal + almond butter",
+      "preWorkout": "Banana + coffee",
+      "postWorkout": "Whey protein + simple carbs",
+      "lunch": "Chicken + sweet potato + salad",
+      "snack": "Greek yogurt + nuts",
+      "dinner": "Fish + vegetables + quinoa",
+      "evening": "Casein protein"
+    },
+    "hydration": "4-5 liters of water daily"
+  },
+  "progressTracking": {
+    "bodyMeasurements": [
+      "Body weight (weekly)",
+      "Waist circumference",
+      "Chest circumference", 
+      "Shoulder width",
+      "Arm circumference",
+      "Progress photos (front, side, back)"
+    ],
+    "strengthMetrics": [
+      "Deadlift 5RM",
+      "Pull-up max reps",
+      "Barbell row 8RM",
+      "Shoulder press 10RM",
+      "Barbell curl 12RM"
+    ],
+    "expectedResults": {
+      "month1": "Strength gains, improved conditioning, 2-3kg fat loss",
+      "month2": "Visible muscle definition, continued fat loss (2-3kg)",
+      "month3": "Significant muscle volume, abs becoming visible (2kg)",
+      "month4": "Lean physique with 6-pack definition (1-2kg)"
+    }
+  },
+  "keyPrinciples": {
+    "training": [
+      "Progressive Overload: Increase weight/reps weekly",
+      "Form First: Never compromise technique for weight",
+      "Consistency: 6 days/week minimum adherence",
+      "Rest: Adequate sleep (7-9 hours) for recovery"
+    ],
+    "nutrition": [
+      "Caloric Deficit: 300-500 calories below maintenance",
+      "Protein Priority: Hit protein targets daily", 
+      "Meal Timing: Eat around workouts for performance",
+      "Hydration: 4-5 liters of water daily"
+    ],
+    "recovery": [
+      "Sleep: 7-9 hours nightly",
+      "Stress Management: Include relaxation techniques",
+      "Mobility: Daily stretching and movement",
+      "Nutrition: Anti-inflammatory foods"
+    ]
+  }
+}
